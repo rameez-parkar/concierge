@@ -1,28 +1,38 @@
 <div class="form">
   <form action="">
-    <Label>Environment</Label>
-    <select name="environment">
-      <option value="master">Master</option>
-      <option value="feature">Feature</option>
-    </select>
+    <div class="environment">
+      <Label>Environment</Label>
+      <select name="environment">
+        <option value="master">Master</option>
+        <option value="feature">Feature</option>
+      </select>
+    </div>
 
-    <label>Client</label>
-    <select name="client">
-      <option value="amex">Am-Ex</option>
-      <option value="usbank">US Bank</option>
-    </select>
+    <div class="client">
+      <label>Client</label>
+      <select name="client">
+        <option value="amex">Am-Ex</option>
+        <option value="usbank">US Bank</option>
+      </select>
+    </div>
 
-    <label>Language</label>
-    <select name="language">
-      <option value="en-us">English US</option>
-      <option value="fr">French</option>
-    </select>
+    <div class="language">
+      <label>Language</label>
+      <select name="language">
+        <option value="en-us">English US</option>
+        <option value="fr">French</option>
+      </select>
+    </div>
 
-    <label>User Name</label>
-    <input type="text" placeholder="type username here" name="username" />
+    <div class="username">
+      <label>User Name</label>
+      <input type="text" placeholder="type username here" name="username" />
+    </div>
 
-    <label>Point Balance</label>
-    <input type="text" value="20000" name="points" />
+    <div class="points">
+      <label>Point Balance</label>
+      <input type="text" value="20000" name="points" />
+    </div>
 
     <button type="submit">Launch</button>
   </form>

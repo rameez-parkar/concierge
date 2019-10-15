@@ -33,6 +33,5 @@ export class ChatBodyComponent implements OnInit {
     let instance = <TextBubbleComponent>componentRef.instance;
     instance.text = data.userText;
     instance.textType = data.textType;
-    this.chatService.updateScroll();
   }
 }

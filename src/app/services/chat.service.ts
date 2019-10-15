@@ -13,7 +13,7 @@ export class ChatService {
 
   updateScroll() {
     var element = document.getElementById("msg-page");
-    element.scrollTop = 99999;
+    element.scrollTop = element.scrollHeight;
   }
   constructor() {}
 }

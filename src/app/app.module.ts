@@ -12,8 +12,7 @@ import { ChatInputComponent } from "./components/chatbot/chat-input/chat-input.c
 import { LauncherComponent } from "./components/launcher/launcher.component";
 import { HeaderComponent } from "./components/launcher/header/header.component";
 import { FormComponent } from "./components/launcher/form/form.component";
-import { SenderChatBubbleComponent } from "./components/chatbot/chat-body/sender-chat-bubble/sender-chat-bubble.component";
-import { ReceiverChatBubbleComponent } from "./components/chatbot/chat-body/receiver-chat-bubble/receiver-chat-bubble.component";
+import { TextBubbleComponent } from "./components/chatbot/chat-body/text-bubble/text-bubble.component";
 
 @NgModule({
   declarations: [
@@ -25,8 +24,7 @@ import { ReceiverChatBubbleComponent } from "./components/chatbot/chat-body/rece
     LauncherComponent,
     HeaderComponent,
     FormComponent,
-    SenderChatBubbleComponent,
-    ReceiverChatBubbleComponent
+    TextBubbleComponent
   ],
   imports: [
     BrowserModule,
@@ -36,6 +34,6 @@ import { ReceiverChatBubbleComponent } from "./components/chatbot/chat-body/rece
   ],
   providers: [],
   bootstrap: [AppComponent],
-  entryComponents: [SenderChatBubbleComponent]
+  entryComponents: [TextBubbleComponent]
 })
 export class AppModule {}

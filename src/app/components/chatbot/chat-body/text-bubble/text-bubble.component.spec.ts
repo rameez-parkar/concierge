@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ReceiverChatBubbleComponent } from './receiver-chat-bubble.component';
+import { TextBubbleComponent } from './text-bubble.component';
 
-describe('ReceiverChatBubbleComponent', () => {
-  let component: ReceiverChatBubbleComponent;
-  let fixture: ComponentFixture<ReceiverChatBubbleComponent>;
+describe('TextBubbleComponent', () => {
+  let component: TextBubbleComponent;
+  let fixture: ComponentFixture<TextBubbleComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ReceiverChatBubbleComponent ]
+      declarations: [ TextBubbleComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ReceiverChatBubbleComponent);
+    fixture = TestBed.createComponent(TextBubbleComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -1,6 +1,6 @@
 import { Component, OnInit, Output, EventEmitter } from "@angular/core";
-import { SenderChatBubbleComponent } from "../chat-body/sender-chat-bubble/sender-chat-bubble.component";
 import { ChatService } from "src/app/services/chat.service";
+import { ConversationService } from "src/app/services/conversation.service";
 import { ChatBodyComponent } from "../chat-body/chat-body.component";
 
 @Component({
@@ -9,13 +9,18 @@ import { ChatBodyComponent } from "../chat-body/chat-body.component";
   styleUrls: ["./chat-input.component.css"]
 })
 export class ChatInputComponent {
-  constructor(private chat: ChatService) {}
+  constructor(
+    private chat: ChatService,
+    private conversation: ConversationService
+  ) {}
 
   userInput: string = "";
 
-  CreateBubble() {
+  SendUserInput() {
     if (this.userInput.length !== 0) {
-      this.chat.textUpdate(this.userInput);
+      //this.chat.textUpdate(this.userInput, "bot");
+      this.conversation.ProcessInput(this.userInput);
+      // user input text type is - "user"
     }
     this.userInput = "";
   }

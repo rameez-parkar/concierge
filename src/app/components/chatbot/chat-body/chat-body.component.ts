@@ -5,8 +5,8 @@ import {
   ViewChild,
   ViewContainerRef
 } from "@angular/core";
-import { SenderChatBubbleComponent } from "./sender-chat-bubble/sender-chat-bubble.component";
 import { ChatService } from "src/app/services/chat.service";
+import { TextBubbleComponent } from "./text-bubble/text-bubble.component";
 
 @Component({
   selector: "app-chat-body",
@@ -19,20 +19,20 @@ export class ChatBodyComponent implements OnInit {
 
   constructor(
     private factory: ComponentFactoryResolver,
-    private chat: ChatService
+    private chatService: ChatService
   ) {}
 
   ngOnInit() {
-    this.chat.AddToBubble.subscribe((text: string) => {
-      this.addComponent(text);
+    this.chatService.CreateTextBubble.subscribe(data => {
+      this.addTextBubble(data);
     });
   }
-
-  addComponent(text) {
-    const factory = this.factory.resolveComponentFactory(
-      SenderChatBubbleComponent
-    );
+  addTextBubble(data) {
+    const factory = this.factory.resolveComponentFactory(TextBubbleComponent);
     const componentRef = this.vc.createComponent(factory);
-    (<SenderChatBubbleComponent>componentRef.instance).chatText = text;
+    let instance = <TextBubbleComponent>componentRef.instance;
+    instance.text = data.userText;
+    instance.textType = data.textType;
+    this.chatService.updateScroll();
   }
 }

@@ -4,6 +4,9 @@
     class="input-box"
     [(ngModel)]="userInput"
     placeholder="Type your message..."
+    (keydown.enter)="SendUserInput()"
   />
-  <button (click)="CreateBubble()">Send</button>
+  <button (click)="SendUserInput()">
+    Send
+  </button>
 </div>

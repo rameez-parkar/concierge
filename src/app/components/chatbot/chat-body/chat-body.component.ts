@@ -14,7 +14,7 @@ import { ChatService } from "src/app/services/chat.service";
   styleUrls: ["./chat-body.component.css"]
 })
 export class ChatBodyComponent implements OnInit {
-  @ViewChild("chatContainer", { read: ViewContainerRef })
+  @ViewChild("chatContainer", { read: ViewContainerRef, static: false })
   vc: ViewContainerRef;
 
   constructor(

@@ -6,13 +6,13 @@ import { Injectable, Output, EventEmitter } from "@angular/core";
 export class ChatService {
   @Output() AddToBubble: EventEmitter<any> = new EventEmitter();
 
-  userText: String;
-
   textUpdate(userText) {
-    //console.log(userText);
+    this.AddToBubble.emit(userText);
+  }
 
-    this.userText = userText;
-    this.AddToBubble.emit(this.userText);
+  updateScroll() {
+    var element = document.getElementById("msg-page");
+    element.scrollTop = element.scrollHeight;
   }
   constructor() {}
 }

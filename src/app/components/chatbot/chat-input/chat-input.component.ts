@@ -8,15 +8,15 @@ import { ChatBodyComponent } from "../chat-body/chat-body.component";
   templateUrl: "./chat-input.component.html",
   styleUrls: ["./chat-input.component.css"]
 })
-export class ChatInputComponent implements OnInit {
+export class ChatInputComponent {
   constructor(private chat: ChatService) {}
-
-  ngOnInit() {}
 
   userInput: string = "";
 
-  UpdateBubble() {
-    this.chat.textUpdate(this.userInput);
+  CreateBubble() {
+    if (this.userInput.length !== 0) {
+      this.chat.textUpdate(this.userInput);
+    }
     this.userInput = "";
   }
 }

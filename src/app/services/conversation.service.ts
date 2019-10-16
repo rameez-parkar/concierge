@@ -6,6 +6,8 @@ import { DialogflowService } from "./dialogflow.service";
   providedIn: "root"
 })
 export class ConversationService {
+  response: JSON;
+
   constructor(
     private chatService: ChatService,
     private dialogflowService: DialogflowService
@@ -15,19 +17,16 @@ export class ConversationService {
     // print on screen
     this.chatService.AddTextBubble(userInput, "user");
     // send to dialogflow
-    let response = this.dialogflowService.GetResponse(userInput);
-    // get intent and call necessary functions
-    let intent = response.intent;
-    let responseMessage = response.message;
+    this.dialogflowService.GetResponseNew(userInput).subscribe(response => {
+      console.log(response);
+      console.log(response.queryResult.queryText);
+      console.log(response.queryResult.parameters);
+      console.log(response.queryResult.allRequiredParamsPresent);
+      console.log(response.queryResult.fulfillmentText);
+      console.log(response.queryResult.intent.displayName);
 
-    switch (intent) {
-      case "Welcome":
-        this.TalkToUser(responseMessage);
-        break;
-      default:
-        this.Fallback();
-        break;
-    }
+      this.TalkToUser(response.queryResult.fulfillmentText);
+    });
   }
 
   TalkToUser(response: string) {

@@ -13,6 +13,7 @@ import { LauncherComponent } from "./components/launcher/launcher.component";
 import { HeaderComponent } from "./components/launcher/header/header.component";
 import { FormComponent } from "./components/launcher/form/form.component";
 import { TextBubbleComponent } from "./components/chatbot/chat-body/text-bubble/text-bubble.component";
+import { HttpClientModule } from "@angular/common/http";
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { TextBubbleComponent } from "./components/chatbot/chat-body/text-bubble/
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent],
